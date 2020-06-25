@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver-hello
+  metadata:
+   name: my-webserver
+   labels:
+     app: my-webserver
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-webserver
+  template:
+    metadata:
+      labels:
+        app: my-webserver
+    spec:
+      containers:
+      - name: my-webserver
+        image: apacheweb:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: "200m"
