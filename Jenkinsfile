@@ -24,7 +24,7 @@ pipeline {
      sh(script: """
        docker login -u=$REGISTRY_AUTH_USR -p=$REGISTRY_AUTH_PSW ${env.REGISTRY_ADDRESS}
        docker push jenkins-pipeline:latest
-     """  
+     """)  
       }
      }
     }   
