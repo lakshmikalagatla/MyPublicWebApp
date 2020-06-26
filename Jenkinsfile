@@ -28,7 +28,7 @@ pipeline {
     stage('Deploy') {
            steps {
                    sh(script: 'gcloud init')
-                   sh(script: 'gcloud container clusters create cluster-1 --num-nodes=3')
+                   sh(script: 'gcloud container clusters create cluster-1 --num-nodes=3 --zone=us-central1-a')
            }
        }
     }   
