@@ -25,7 +25,7 @@ pipeline {
      echo "Workspace is $WORKSPACE"
      sh(script: """
        docker login -u=$REGISTRY_AUTH_USR -p=$REGISTRY_AUTH_PSW
-       docker push jenkins-pipeline:latest
+       docker push sivadockerlakshmi/jenkins-pipeline:latest
      """)  
       }
      }
