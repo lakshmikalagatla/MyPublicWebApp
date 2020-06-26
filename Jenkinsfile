@@ -23,8 +23,10 @@ pipeline {
      echo "Workspace is $WORKSPACE"
      dir("$WORKSPACE") {
         echo "$GIT_BRANCH"
-          docker.withRegistry('','DockerHub') {
+        script{  
+	docker.withRegistry('','DockerHub') {
              }
+       }
       }
     }   
    }
