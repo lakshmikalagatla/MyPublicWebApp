@@ -1,6 +1,8 @@
 pipeline {
    agent any
-
+   environment {
+    REGISTRY_AUTH = credentials("DockerHub")
+   }
    stages {
       stage('Verify Branch') {
          steps {
