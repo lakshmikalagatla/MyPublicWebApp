@@ -21,14 +21,18 @@ pipeline {
      }
      }
      stage('Push Container'){
-      steps {
-            echo "$GIT_BRANCH"
-         }
+   steps {
+     echo "Workspace is $WORKSPACE"
+     sh(script: """
+       docker login -u=$REGISTRY_AUTH_USR -p=$REGISTRY_AUTH_PSW
+       docker push sivadockerlakshmi/jenkins-pipeline:latest
+     """)
+      }
      }
-    stage('Deploy') {
+    stage('Deployment'){
            steps {
                    sh(script: 'gcloud init')
-                   sh(script: 'gcloud container clusters create cluster-1 --num-nodes=3 --zone=us-central1-a')
+                   sh(script: 'gcloud container clusters create cluster-1 --num-nodes=3 --zone=us-west4-c')
            }
        }
     }   
