@@ -29,5 +29,10 @@ pipeline {
      """)  
       }
      }
+    stage('Deploy') {
+           steps {
+                   sh(script: 'ansible-playbook  playbook.yml'
+           }
+       }
     }   
    }
