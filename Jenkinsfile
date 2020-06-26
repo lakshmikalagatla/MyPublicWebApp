@@ -24,7 +24,7 @@ pipeline {
      dir("$WORKSPACE") {
         echo "$GIT_BRANCH"
         script {
-          docker.withRegistry('https://index.docker.io/v1/','DockerHub') {
+          docker.withRegistry('','DockerHub') {
               }
              }
       }
