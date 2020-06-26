@@ -11,7 +11,7 @@ pipeline {
      steps {
 	sh(script: 'docker images -a')
         sh(script: """
-           cd MyPublicWebApp/
+           #cd MyPublicWebApp/
            docker images -a
            docker build -t jenkins-pipeline .
            cd ..
