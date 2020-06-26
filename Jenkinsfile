@@ -21,14 +21,11 @@ pipeline {
      stage('Push Container'){
    steps {
      echo "Workspace is $WORKSPACE"
-     dir("$WORKSPACE") {
-        echo "$GIT_BRANCH"
-        script{  
-	docker.withRegistry('','DockerHub') {
-             }
-       }
+     sh(script: """
+       docker login -u=$REGISTRY_AUTH_USR -p=$REGISTRY_AUTH_PSW ${env.REGISTRY_ADDRESS}
+       docker push jenkins-pipeline:latest
+     """  
       }
+     }
     }   
    }
-}
-}
