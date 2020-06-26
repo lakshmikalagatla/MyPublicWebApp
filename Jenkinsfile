@@ -27,7 +27,8 @@ pipeline {
      }
     stage('Deploy') {
            steps {
-                   sh(script: 'ansible-playbook  playbook.yml')
+                   sh(script: 'gcloud init')
+                   sh(script: 'gcloud container clusters create cluster-1 --num-node=3')
            }
        }
     }   
