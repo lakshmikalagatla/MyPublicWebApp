@@ -21,6 +21,9 @@ pipeline {
      }
      }
      stage('Push Container'){
+      steps {
+            echo "$GIT_BRANCH"
+         }
      }
     stage('Deploy') {
            steps {
