@@ -21,17 +21,10 @@ pipeline {
      }
      }
      stage('Push Container'){
-   steps {
-     echo "Workspace is $WORKSPACE"
-     sh(script: """
-       docker login -u=$REGISTRY_AUTH_USR -p=$REGISTRY_AUTH_PSW
-       docker push sivadockerlakshmi/jenkins-pipeline:latest
-     """)  
-      }
      }
     stage('Deploy') {
            steps {
-                   sh(script: 'ansible-playbook  playbook.yml'
+                   sh(script: 'ansible-playbook  playbook.yml')
            }
        }
     }   
