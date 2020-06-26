@@ -16,7 +16,7 @@ pipeline {
            #cd MyPublicWebApp/
            docker images -a
            docker build -t jenkins-pipeline .
-           cd ..
+           docker tag jenkins-pipeline sivadockerlakshmi/jenkins-pipeline:latest
         """)
      }
      }
