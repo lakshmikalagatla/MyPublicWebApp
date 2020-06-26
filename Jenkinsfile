@@ -21,7 +21,8 @@ pipeline {
      stage('Push Container'){
    steps {
      echo "Workspace is $WORKSPACE"
-     dir("$WORKSPACE/") {
+     dir("$WORKSPACE") {
+        echo "$GIT_BRANCH"
         script {
           docker.withRegistry('https://index.docker.io/v1/','DockerHub') {
                def image = docker.build('sivadockerlakshmi/apacheweb:latest')
